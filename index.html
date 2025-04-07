@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Enhancer & Background Remover</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Enhancer & Background Remover</h1>
+        
+        <div class="upload-container">
+            <label for="imageUpload" class="upload-label">
+                <span>Upload Image</span>
+                <input type="file" id="imageUpload" accept="image/*">
+            </label>
+        </div>
+        
+        <div class="tools-container">
+            <div class="tool-section">
+                <h2>Image Enhancer</h2>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="brightness">Brightness</label>
+                        <input type="range" id="brightness" min="-100" max="100" value="0" class="slider">
+                        <span class="value">0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="contrast">Contrast</label>
+                        <input type="range" id="contrast" min="-100" max="100" value="0" class="slider">
+                        <span class="value">0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="saturation">Saturation</label>
+                        <input type="range" id="saturation" min="-100" max="100" value="0" class="slider">
+                        <span class="value">0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="sharpness">Sharpness</label>
+                        <input type="range" id="sharpness" min="0" max="100" value="0" class="slider">
+                        <span class="value">0</span>
+                    </div>
+                    <button id="resetEnhancer" class="btn">Reset</button>
+                </div>
+            </div>
+            
+            <div class="tool-section">
+                <h2>Background Remover</h2>
+                <div class="controls">
+                    <button id="removeBg" class="btn" disabled>Remove Background</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-container">
+            <div class="preview-box">
+                <h3>Original</h3>
+                <div id="originalPreview" class="preview"></div>
+            </div>
+            <div class="preview-box">
+                <h3>Enhanced</h3>
+                <div id="enhancedPreview" class="preview"></div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button id="downloadBtn" class="btn" disabled>Download Image</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+    <script src="enhancer.js"></script>
+    <script src="bgremover.js"></script>
+    <script src="main.js"></script>
+    <script src="touch.js"></script>
+    <script>
+        // Check if the application is fully loaded
+        window.addEventListener('load', function() {
+            console.log('Application fully loaded and ready to use');
+        });
+    </script>
+</body>
+</html>
